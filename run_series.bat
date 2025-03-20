@@ -1,1 +1,1 @@
-.venv\Scripts\python.exe main.py --surface_width 31 --surface_height 16 --throw_ratio 0.8 --distance_series "15-20" --aspect_ratio "16:9" --output_dir output
+.venv\Scripts\python.exe main.py --surface_width 31 --surface_height 16 --throw_ratio 0.8 --distance_series "15-20" --aspect_ratio "16:10" --output_dir output
