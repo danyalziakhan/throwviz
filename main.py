@@ -82,7 +82,13 @@ def launch_gui(args):
         dpg.add_input_text(label="Output Dir", tag="out", default_value=args.output_dir)
         dpg.add_button(label="Generate", callback=generate_callback)
 
-    dpg.create_viewport(title="ThrowViz", width=450, height=450)
+    dpg.create_viewport(
+        title="ThrowViz",
+        width=450,
+        height=450,
+        small_icon="icon.ico",
+        large_icon="icon.ico",
+    )
     dpg.setup_dearpygui()
     dpg.show_viewport()
     dpg.set_primary_window("main", True)

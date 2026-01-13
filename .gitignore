@@ -1,6 +1,7 @@
 old/
 output/
 *.whl
+*.png
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
