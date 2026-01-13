@@ -135,48 +135,89 @@ if __name__ == "__main__":
         ax.add_patch(inner_rect)
 
         # Place labels for the outer rectangle
-        ax.text(
-            args.surface_width / 2,  # Centered horizontally
-            args.surface_height + 0.5,  # Slightly above the outer rectangle
-            f"{args.surface_width} ft",
-            ha="center",
-            fontsize=9,
-            color="black",
+        y_outer = args.surface_height + 0.6
+        x_outer = -0.7
+        linewidth = 1.0
+        fontsize = 9
+
+        ax.annotate(
+            "",
+            xy=(0, y_outer),
+            xytext=(args.surface_width, y_outer),
+            arrowprops=dict(arrowstyle="<->", color="black", linewidth=linewidth),
         )
         ax.text(
-            -1,  # To the left of the outer rectangle
-            args.surface_height / 2,  # Centered vertically
+            args.surface_width / 2,
+            y_outer + 0.15,
+            f"{args.surface_width} ft",
+            ha="center",
+            va="bottom",
+            fontsize=fontsize,
+            color="black",
+        )
+
+        ax.annotate(
+            "",
+            xy=(x_outer, 0),
+            xytext=(x_outer, args.surface_height),
+            arrowprops=dict(arrowstyle="<->", color="black", linewidth=linewidth),
+        )
+        ax.text(
+            x_outer - 0.15,
+            args.surface_height / 2,
             f"{args.surface_height} ft",
+            ha="right",
             va="center",
-            fontsize=9,
+            fontsize=fontsize,
             color="black",
             rotation=90,
         )
 
         # Place labels for the inner rectangle
-        ax.text(
-            inner_x
-            + inner_width / 2,  # Centered horizontally within the inner rectangle
-            inner_y + inner_height - 1.0,  # Slightly below the inner rectangle's top
-            f"{inner_width:.2f} ft",
-            ha="center",
-            fontsize=9,
-            color="blue",
+        y_inner = inner_y + inner_height - 1.0
+        x_inner = inner_x + 1.0
+        linewidth = 0.8
+        fontsize = 8
+
+        ax.annotate(
+            "",
+            xy=(inner_x, y_inner),
+            xytext=(inner_x + inner_width, y_inner),
+            arrowprops=dict(arrowstyle="<->", color="blue", linewidth=linewidth),
         )
         ax.text(
-            inner_x + 0.6,  # Slightly to the right of the inner rectangle's left
-            inner_y
-            + inner_height / 2,  # Centered vertically within the inner rectangle
+            inner_x + inner_width / 2,
+            y_inner - 0.15,
+            f"{inner_width:.2f} ft",
+            ha="center",
+            va="top",  # ← was "bottom"
+            fontsize=fontsize,
+            color="blue",
+        )
+
+        ax.annotate(
+            "",
+            xy=(x_inner, inner_y),
+            xytext=(x_inner, inner_y + inner_height),
+            arrowprops=dict(arrowstyle="<->", color="blue", linewidth=linewidth),
+        )
+        ax.text(
+            x_inner + 0.20,
+            inner_y + inner_height / 2,
             f"{inner_height:.2f} ft",
+            ha="left",
             va="center",
-            fontsize=9,
+            fontsize=fontsize,
             color="blue",
             rotation=90,
         )
 
         # Adjust view and remove axes
-        ax.set_xlim(-2, args.surface_width + 2)
-        ax.set_ylim(-2, args.surface_height + 2)
+        plt.title(
+            f"Throw Distance = {distance} ft   |   Aspect Ratio = {args.aspect_ratio}"
+        )
+        ax.set_xlim(-1, args.surface_width + 2)
+        ax.set_ylim(-1, args.surface_height + 2)
         ax.set_aspect("equal")
         ax.axis("off")
 
