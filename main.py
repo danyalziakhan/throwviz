@@ -121,6 +121,7 @@ if __name__ == "__main__":
             fill=False,
             color="blue",
             linewidth=2,
+            linestyle="--",
         )
 
         # Add rectangles to the plot
