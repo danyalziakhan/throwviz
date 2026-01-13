@@ -4,6 +4,17 @@ import os
 
 import matplotlib.pyplot as plt
 
+
+def parse_distance_series(series: str):
+    distances = [int(n) for n in series.split("-")]
+    return list(range(distances[0], distances[1] + 1))
+
+
+def parse_aspect_ratio(ar):
+    w, h = ar.replace(" ", "").split(":")
+    return float(w), float(h)
+
+
 if __name__ == "__main__":
     freeze_support()
 
@@ -76,25 +87,20 @@ if __name__ == "__main__":
         )
         os.makedirs(args.output_dir)
 
-    if args.aspect_ratio == "16:10":
-        aspect_ratio = 10 / 16
-    elif args.aspect_ratio == "16:9":
-        aspect_ratio = 9 / 16
-    elif args.aspect_ratio == "4:3":
-        aspect_ratio = 3 / 4
-    else:
-        raise ValueError(f"Unsupported Aspect Ratio value: {args.aspect_ratio}")
+    ar_w, ar_h = parse_aspect_ratio(args.aspect_ratio)
+
+    if args.distance and args.distance_series:
+        raise ValueError("Provide either distance or distance_series, but not both.")
 
     if args.distance_series:
-        distances = [int(n) for n in args.distance_series.split("-")]
-        distances = list(range(distances[0], distances[1] + 1))
+        distances = parse_distance_series(args.distance_series)
     else:
         distances = [args.distance]
 
     for distance in distances:
         # Dimensions
         inner_width = distance / args.throw_ratio
-        inner_height = aspect_ratio * inner_width
+        inner_height = inner_width * (ar_h / ar_w)
 
         # Create the figure and axis
         fig, ax = plt.subplots(figsize=(8, 5))
