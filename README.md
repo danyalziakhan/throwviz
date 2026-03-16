@@ -41,7 +41,7 @@ git clone https://github.com/danyalziakhan/throwviz.git
 cd throwviz
 ```
 
-Create a virtual environment if desired:
+Create a virtual environment:
 
 ``` bash
 python -m venv .venv
@@ -127,17 +127,20 @@ Example:
 
 ``` text
 output/
-18ft.png
-19ft.png
-20ft.png
+  18ft.png
+  19ft.png
+  20ft.png
 ```
 
 ## Example Images
 
 <p align="center">
-  <img src="assets/18ft.png" width="30%">
-  <img src="assets/19ft.png" width="30%">
-  <img src="assets/20ft.png" width="30%">
+  <img src="assets/18ft.png" width="48%">
+  <img src="assets/19ft.png" width="48%">
+</p>
+
+<p align="center">
+  <img src="assets/20ft.png" width="48%">
 </p>
 
 ## Why this tool exists
