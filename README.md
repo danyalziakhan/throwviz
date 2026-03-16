@@ -1,4 +1,16 @@
-# ThrowViz
+<p align="center">
+  <h1 align="center">ThrowViz</h1>
+  <p align="center">
+    A small tool for visualizing projector throw distances and screen coverage
+  </p>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/python-3.x-blue">
+  <img src="https://img.shields.io/badge/license-MIT-green">
+</p>
+
+---
 
 ThrowViz is a small Python tool that helps visualize projector throw
 distances and screen coverage.
@@ -11,8 +23,6 @@ clients.
 The tool can run either as a small GUI application or from the command
 line. It produces PNG images that illustrate the projection area for the
 given parameters.
-
-Example outputs are saved in the `output/` folder.
 
 ## Features
 
@@ -27,7 +37,7 @@ Example outputs are saved in the `output/` folder.
 Clone the repository:
 
 ``` bash
-git clone https://github.com/yourusername/throwviz.git
+git clone https://github.com/danyalziakhan/throwviz.git
 cd throwviz
 ```
 
@@ -121,6 +131,14 @@ output/
 19ft.png
 20ft.png
 ```
+
+## Example Images
+
+<p align="center">
+  <img src="assets/18ft.png" width="30%">
+  <img src="assets/19ft.png" width="30%">
+  <img src="assets/20ft.png" width="30%">
+</p>
 
 ## Why this tool exists
 
